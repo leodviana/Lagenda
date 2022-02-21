@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="LagendaApp.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+
+    <ScrollView>
+        <Grid
+            BackgroundColor="{StaticResource BackgroundColor}"
+            ColumnSpacing="0"
+            RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{OnPlatform Android=20, iOS=50}" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Row="1"
+                Margin="10,0,30,0"
+                Aspect="AspectFit"
+                Source="logo02.svg" />
+
+
+            <StackLayout
+                Grid.Row="3"
+                Margin="10,0,10,10"
+                Padding="10,30,20,0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Grid BackgroundColor="{StaticResource BackgroundColor}" RowSpacing="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{OnPlatform Android=20, iOS=40}" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Start"
+                        Source="Default.png"
+                        VerticalOptions="Center" />
+
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="Email"
+                        Text="{Binding Usuarioid, Mode=TwoWay}"
+                        VerticalOptions="CenterAndExpand" />
+
+
+                    <Image
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Start"
+                        Source="Default.png"
+                        VerticalOptions="Center" />
+
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        IsPassword="True"
+                        Placeholder="Senha"
+                        Text="{Binding Senha, Mode=TwoWay}"
+                        VerticalOptions="CenterAndExpand" />
+
+
+                    <Button
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="10,0,0,10"
+                        BackgroundColor="{StaticResource MainColor}"
+                        BorderRadius="20"
+                        Command="{Binding navegar}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Login"
+                        TextColor="{StaticResource BackgroundColor}"
+                        VerticalOptions="CenterAndExpand" />
+
+
+
+
+
+                    <ActivityIndicator
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        IsRunning="{Binding IsRunning}"
+                        Color="{StaticResource MainColor}" />
+
+                </Grid>
+
+            </StackLayout>
+            <Frame Grid.Row="4" BackgroundColor="{StaticResource MainColor}" />
+
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
